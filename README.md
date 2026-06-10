@@ -5,6 +5,7 @@ This repository collects my most important projects, from university and my othe
 ## Portfolio
 My most recent work is my portfolio site, which I built with Laravel, Filament and Livewire, and host myself.
 It is a single-page site aimed at recruiters, with an admin panel behind it.
+***DISCLAIMER: It was made by Claude because i needed this fast. and i had a working version ina  few hours***
 
 Key features:
 - Multiple portfolio versions on different URLs, with Hungarian and English content.
@@ -43,6 +44,7 @@ Ebben a repóban gyűjtöttem össze eddigi munkáimat az egyetemről és egyéb
 ## Portfólió
 A legfrissebb munkám a portfólió oldalam, amit Laravel, Filament és Livewire segítségével készítettem, és magam üzemeltetek.
 Egy egyoldalas, toborzóknak szánt oldal, mögötte admin felülettel.
+***FONTOS: Ez Calude-al készült el, mivel gyorsan kellett egy működő verzió***
 
 Főbb funkciók:
 - Több portfólió-verzió külön URL-eken, magyar és angol tartalommal.
