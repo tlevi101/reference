@@ -36,6 +36,47 @@ Source code: [Function-wars](https://github.com/tlevi101/Function-wars)
 I have also deployed it, so it can be tried without cloning the project and installing every dependency: [Site](https://functionwors.leventetorma.dev/)
 ### <del> ***Currently the fucntionswars websocket do not work on production, i am working on the fix. This means that cahting, and joining a game doesn't work.*** </del> FIXED: Cloudflare blocked websockets.
 
+## Home Assistant
+
+Home Assistant is an open source smart home platform — I have nothing to do with
+its development. However, my own setup has grown complex enough over the past
+year that I think it's worth mentioning here.
+
+**Infrastructure.** Home Assistant runs on my own Proxmox host. Next to it I run
+a local voice assistant pipeline: a privileged LXC container with GPU passthrough
+(NVIDIA device node bind-mounts) running `wyoming-faster-whisper` and
+`wyoming-piper` in Docker. Speech-to-text and text-to-speech stay entirely on my
+hardware instead of going to a cloud provider, and run on the GPU rather than
+falling back to CPU.
+
+**Protocols and devices.** The setup spans Zigbee, Thread/Matter, WiFi and
+ESP-based devices — WLED light strips on ESP32, Nanoleaf Matter-over-Thread
+bulbs, Zigbee sensors and buttons, a self-built mmWave presence sensor, and a
+climate zone setup with derived comfort sensors.
+
+**Automation architecture.** I migrated the system from scenes to explicit
+scripts, which made lighting state — especially WLED presets driven through
+`select.select_option` — deterministic and reusable instead of a pile of
+snapshots.
+
+**Debugging.** A large part of the work was diagnosis rather than configuration:
+tracking a 2.4 GHz reliability problem down to SNR collapse from a charger in the
+router's near field plus USB 3.0 emission, resolving Zigbee instability caused by
+coordinator/USB adapter issues and co-channel interference with a Thread border
+router, and chasing a WLED fault down to a failing ESP32.
+
+**Beyond the smart home.** The same host runs Jellyfin as a personal streaming
+service. A cron job watches the series directory, and when something new appears
+it invokes the Claude Code CLI to decide what to do with it — whether the series
+already exists, which season it belongs to — keeping the library consistently
+organized with human-readable names. Ambient lighting driven by HyperHDR reacts
+to what's on the TV screen.
+
+What I take from this: most of the effort here was systems work, not smart home
+work — Linux and container administration, RF and network troubleshooting,
+building and soldering my own microcontroller devices, and designing an
+automation layer that stays maintainable as it grows.
+
 ## Java Snake game
 
 It’s a small generic snake game.
@@ -86,6 +127,50 @@ A forráskód elérhető ezen az oldalon: [Function-wars](https://github.com/tle
 
 Továbbá kitettem egy szerverre is, így meg lehet nézni anélkül, hogy futtatni kellene lokálisan: [Oldal](https://functionwors.leventetorma.dev/)
 ### <del> ***Jelenleg a websocketek nem működnek az éles szervern, dolgozoma  javításán. Ez annyit jelent, hogy chat és játékhot csatlakozás nem működik.*** </del> Javítva: Cloudflare blokolta Websocket kapcsolatokat
+
+## Home Assistant
+
+A Home Assistant egy nyílt forráskódú okosotthon platform — a fejlesztéséhez
+semmi közöm. A saját rendszerem viszont az elmúlt egy évben elég összetetté vált
+ahhoz, hogy szerintem érdemes itt megemlíteni.
+
+**Infrastruktúra.** A Home Assistant a saját Proxmox hostomon fut. Mellette egy
+helyi hangasszisztens pipeline is működik: egy privilegizált LXC konténer GPU
+passthrough-val (NVIDIA device node bind-mountokkal), amiben a
+`wyoming-faster-whisper` és a `wyoming-piper` fut Dockerben. Így a beszéd-szöveg
+és szöveg-beszéd átalakítás teljes egészében a saját hardveremen marad, nem
+felhőszolgáltatónál, ráadásul ténylegesen a GPU-n fut, nem esik vissza CPU-ra.
+
+**Protokollok és eszközök.** A rendszer Zigbee, Thread/Matter, WiFi és ESP-alapú
+eszközöket fog össze — ESP32-n futó WLED LED-szalagok, Nanoleaf
+Matter-over-Thread izzók, Zigbee szenzorok és gombok, egy saját építésű mmWave
+jelenlétérzékelő, valamint egy klímazóna-felállás származtatott
+komfortszenzorokkal.
+
+**Automatizálási architektúra.** A rendszert scene-ekről explicit scriptekre
+migráltam, amitől a világítás állapota — különösen a `select.select_option`-nel
+vezérelt WLED presetek — determinisztikussá és újrafelhasználhatóvá vált a
+korábbi pillanatképek halmaza helyett.
+
+**Hibakeresés.** A munka nagy része nem konfigurálás volt, hanem diagnosztika:
+egy 2,4 GHz-es stabilitási problémát az SNR beszakadásáig vezettem vissza, amit a
+router közvetlen közelében lévő töltő és az USB 3.0 zavarkibocsátása okozott;
+megoldottam a Zigbee hálózat instabilitását, ami a koordinátor/USB adapter
+hibáiból és a Thread border routerrel való azonos csatornás interferenciából
+eredt; egy WLED hibát pedig egy meghibásodott ESP32-ig követtem le.
+
+**Az okosotthonon túl.** Ugyanezen a hoston fut a Jellyfin mint személyes
+streaming szolgáltatás. Egy cron feladat figyeli a sorozatok könyvtárát, és ha
+új tartalom jelenik meg, meghívja a Claude Code CLI-t, ami eldönti, mi legyen
+vele — létezik-e már a sorozat, melyik évadhoz tartozik —, így a könyvtár
+következetesen rendezett marad, beszédes nevekkel. A HyperHDR által vezérelt
+ambient világítás pedig a TV képernyőjének tartalmára reagál.
+
+Amit ebből elviszek: a munka nagy része nem okosotthonozás volt, hanem
+rendszerszintű munka — Linux- és konténer-adminisztráció, rádiós és hálózati
+hibakeresés, saját mikrokontrolleres eszközök építése és forrasztása, valamint
+egy olyan automatizálási réteg megtervezése, ami növekedés közben is
+karbantartható marad.
 
 ## Java Kígyós játék
 Egy egyszerű és átlagos kígyós játék.
