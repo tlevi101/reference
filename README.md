@@ -34,7 +34,7 @@ Key features:
 Source code: [Function-wars](https://github.com/tlevi101/Function-wars)
 
 I have also deployed it, so it can be tried without cloning the project and installing every dependency: [Site](https://functionwors.leventetorma.dev/)
-### ~~ ***Currently the fucntionswars websocket do not work on production, i am working on the fix. This means that cahting, and joining a game doesn't work.*** ~~ FIXED: Cloudflare blocked websockets.
+### <del> ***Currently the fucntionswars websocket do not work on production, i am working on the fix. This means that cahting, and joining a game doesn't work.*** </del> FIXED: Cloudflare blocked websockets.
 
 ## Java Snake game
 
@@ -85,7 +85,7 @@ Főbb funkciók:
 A forráskód elérhető ezen az oldalon: [Function-wars](https://github.com/tlevi101/Function-wars)
 
 Továbbá kitettem egy szerverre is, így meg lehet nézni anélkül, hogy futtatni kellene lokálisan: [Oldal](https://functionwors.leventetorma.dev/)
-### ~~ ***Jelenleg a websocketek nem működnek az éles szervern, dolgozoma  javításán. Ez annyit jelent, hogy chat és játékhot csatlakozás nem működik.*** ~~ Javítva: Cloudflare blokolta Websocket kapcsolatokat
+### <del> ***Jelenleg a websocketek nem működnek az éles szervern, dolgozoma  javításán. Ez annyit jelent, hogy chat és játékhot csatlakozás nem működik.*** </del> Javítva: Cloudflare blokolta Websocket kapcsolatokat
 
 ## Java Kígyós játék
 Egy egyszerű és átlagos kígyós játék.
