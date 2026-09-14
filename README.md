@@ -3,19 +3,6 @@
 This repository collects my most important projects, from university and my other personal projects.
 
 ## Portfolio
-My most recent work is my portfolio site, which I built with Laravel, Filament and Livewire, and host myself.
-It is a single-page site aimed at recruiters, with an admin panel behind it.
-
-***DISCLAIMER: It was made by Claude because i needed it asap.***
-
-Key features:
-- Multiple portfolio versions on different URLs, with Hungarian and English content.
-- PDF CV generation per version and language.
-- Content fully managed from a Filament admin.
-- Self-made, cookieless visitor analytics: IP addresses are stored only as salted hashes, bots are filtered out.
-- Light/dark theme.
-
-Source code: [Portfolio](https://github.com/tlevi101/portfolio)
 Live site: [Site](https://leventetorma.dev)
 
 ## Thesis
@@ -96,19 +83,6 @@ It’s a small personal project that I abandoned. It was meant to be combined wi
 
 # Referencia munkák
 ## Portfólió
-A legfrissebb munkám a portfólió oldalam, amit Laravel, Filament és Livewire segítségével készítettem, és magam üzemeltetek.
-Egy egyoldalas, toborzóknak szánt oldal, mögötte admin felülettel.
-
-***FONTOS: Ez Calude-al készült el, mivel gyorsan kellett egy működő verzió***
-
-Főbb funkciók:
-- Több portfólió-verzió külön URL-eken, magyar és angol tartalommal.
-- PDF önéletrajz generálás verziónként és nyelvenként.
-- A tartalom teljes egészében Filament adminból kezelhető.
-- Saját, süti nélküli látogatottság-mérés: az IP-címek csak sózott hash-ként tárolódnak, a botokat kiszűröm.
-- Világos/sötét téma.
-
-[Forráskód](https://github.com/tlevi101/portfolio)
 [Oldal](https://leventetorma.dev)
 
 ## Szakdolgozat
